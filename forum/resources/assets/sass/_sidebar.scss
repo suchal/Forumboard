@@ -1,0 +1,144 @@
+$sidebar_size: 150px;
+$base_color: #7fae71;
+$color: #fff;
+.navbar-default{
+    background-color: $base_color;
+    color: $color;
+    font-weight: 400;
+}
+.navbar-default .navbar-brand{
+    color: $color;
+}
+.navbar-default .navbar-nav > li > a{
+    color: $color;
+}
+.navbar .nav{
+    color: $color;
+    font-weight: 400;
+}
+ body {
+    overflow-x: hidden;
+ }
+
+/* Toggle Styles */
+
+#wrapper {
+    padding-top: 30px;
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: $sidebar_size;
+}
+
+#sidebar-wrapper {
+    padding-top: 50px;
+    z-index: 1000;
+    position: fixed;
+    left: $sidebar_size;
+    width: 0;
+    height: 100%;
+    margin-left: -$sidebar_size;
+    overflow-y: auto;
+    background: $base_color;
+    font-weight: 400;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: $sidebar_size;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -$sidebar_size;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: $sidebar_size;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: $color;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: $color;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: $color;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: $color;
+    background: none;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: $sidebar_size;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: $sidebar_size;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}
