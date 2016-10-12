@@ -40,4 +40,14 @@ class User extends Authenticatable
     public function city(){
         return $this->belongsTo(City::class);
     }
+
+
+    public function isAdmin(){
+        return $this->is_admin;
+    }
+
+    public static function admins(){
+        return static::where('is_admin', 1);
+    }
+    
 }

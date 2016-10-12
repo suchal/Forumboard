@@ -17,7 +17,7 @@ class ProfileController extends Controller
         $user = User::where('username', $username)->first();
         if($user == null) abort(404, 'The user is not found');
         if($user->id == \Auth::user()->id) return redirect('/profile');
-        
+        return view('profile.show', compact('user'));        
     }
 
     public function index(){

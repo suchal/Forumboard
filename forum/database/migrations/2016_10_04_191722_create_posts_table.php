@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->text('content');
             $table->boolean('reply_allowed');
-            $table->boolean('is_open');
+            $table->boolean('is_open')->default(1);
             $table->integer('user_id')->unsigned();
             $table->integer('category_id')->unsigned();
             $table->integer('type_id')->unsigned();

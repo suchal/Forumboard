@@ -1,7 +1,4 @@
 <nav class="navbar navbar-default navbar-fixed-top">
-<ul class="nav navbar-nav">
-<li><a href="#menu-toggle" class="btn btn-default tiny_button" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a></li>
-</ul>
     <div class="container">
 
         <div class="navbar-header">

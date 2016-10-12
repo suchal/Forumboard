@@ -7,6 +7,7 @@
 	<div class="container">
 		<div class="row">
 		<h1>Create a new post</h1>
+			
 			<form method="POST" action="/posts">
 			{!! csrf_field() !!}
 				<div class="form-group">

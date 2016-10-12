@@ -3,6 +3,11 @@
 @section('content')
 <div class="container">
     <div class="row">
+    @if (count($errors->all()))
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    @endif
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>

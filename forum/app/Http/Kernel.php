@@ -36,6 +36,11 @@ class Kernel extends HttpKernel
             'throttle:60,1',
             'bindings',
         ],
+
+        'admin_panel' => [
+            'auth',
+            \App\Http\Middleware\admin::class,
+        ],
     ];
 
     /**

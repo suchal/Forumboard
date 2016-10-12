@@ -9,9 +9,11 @@ use App\Photo;
 use App\Type;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Post extends Model
 {
+    use Searchable;
     /**
      * Fields that cannot be mass assigned.
      *
@@ -50,5 +52,15 @@ class Post extends Model
 
     public function city(){
         return $this->belongsTo(City::class);
+    }
+
+    //fields you want to make searchable
+    public function toSearchableArray()
+    {
+        $array = $this->toArray();
+
+        // Customize array...
+
+        return $array;
     }
 }

@@ -24,43 +24,12 @@
     </script>
 </head>
 <body>
-<div id="wrapper" class="toggled">
 <div id="app">
-    <!-- Sidebar -->
-    <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <li>
-                <a href="#">Dashboard</a>
-            </li>
-            <li>
-                <a href="/posts">Posts</a>
-            </li>
-            <li>
-                <a href="/posts/create">Create Post</a>
-            </li>
-            <li>
-                <a href="#">Messages</a>
-            </li>
-            <li>
-                <a href="#">About</a>
-            </li>
-        </ul>
+    @include('layouts.nav')
+    <div class="content">
+    @yield('content')
     </div>
-    <!-- /#sidebar-wrapper -->
-
-    <!-- Page Content -->
-    <div id="page-content-wrapper">
-        <div class="container-fluid">
-            @include('layouts.nav')
-            <div class="content">
-            @yield('content')
-            </div>
-        </div>
-    </div>
-    <!-- /#page-content-wrapper -->
-</div><!--#App-->
 </div>
-<!-- /#wrapper -->
     
         
     
@@ -68,12 +37,6 @@
     <!-- Scripts -->
     <script src="/js/all.js"></script>
     <script src="/js/app.js"></script> 
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
     @yield('scripts');
 </body>
 </html>

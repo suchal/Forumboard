@@ -33,23 +33,28 @@ class ProfileUpdateRequest extends FormRequest
         ];
     }
 
-    public function persist(){
+    public function persist($user = null){
+        if(! isset($user) )
+            $user = $this->user();
         $data=[];
         $data['bio'] = $this->bio;
         if(isset($this->username)) $data['username'] = $this->username;
         if(isset($this->email)) $data['email'] = $this->email;
         if(isset($this->phone_number)) $data['phone_number'] = $this->phone_number;
-        if(isset($this->password)&& strlen(trim($this->password))>7 ) $data['password'] = $this->password;
+        if(isset($this->password)&& strlen(trim($this->password))>7 ) $data['password'] = bcrypt($this->password);
         if(isset($this->show_phone_number)) $data['show_phone_number'] = true;
         else $data['show_phone_number'] = false;
-        $this->user()->update($data);
+        $user->update($data);
     }
 
-    public function check(){
+    public function check($user = null){
         
         $errors=[];
+        if(! isset($user) )
+            $user = $this->user();
+
         if(
-            $this->user()->username != $this->username
+            $user->username != $this->username
             &&
             User::where('username',$this->username)->exists()
         ){
@@ -57,7 +62,7 @@ class ProfileUpdateRequest extends FormRequest
             $errors['username']="This username is not available!";
         }
         if(
-            $this->user()->email != $this->email
+            $user->email != $this->email
             &&
             User::where('email',$this->email)->exists()
         ){

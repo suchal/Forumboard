@@ -81,4 +81,11 @@ class PostController extends Controller
     	return $data;
     }
 
+    public function search(Request $req){
+        $query = $req->query;
+        $results = Post::search($req->query)->paginate(10);
+
+        return view('post.search', compact('results', 'query'));
+    }    
+    
 }

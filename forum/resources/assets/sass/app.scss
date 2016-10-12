@@ -1,7 +1,9 @@
 
 // Fonts
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
-@import '_sidebar';
+.content{
+	margin-top:30px;
+}
 .gallery__photo{
 	width: 100%;
 }
